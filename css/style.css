@@ -1,0 +1,48 @@
+body{
+    background-image:url("https://www.esrl.noaa.gov/news/quarterly/winter-2011/img/snow.jpg");
+    background-size:cover;
+}
+
+h1{
+    padding-top:100px;
+    text-align:center;
+    font-family: 'Abril Fatface', cursive;
+    font-weight: bold;
+    color:black;
+}
+
+h4{
+    padding-top:20px;
+    text-align:center;
+    font-weight: bold;
+    color:black;
+}
+
+.row{
+    padding-top:30px;
+    padding-left:20px;
+    padding-right:20px;
+    text-align:center;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.col{
+    font-weight: bold;
+}
+
+
+#output1, #output2{
+    padding-top:100px;
+    text-align: center;
+    color:black;
+
+}
+
+#heading-description{
+    color:black;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+
