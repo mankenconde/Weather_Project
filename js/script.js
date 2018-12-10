@@ -36,14 +36,12 @@ jQuery(document).ready(function(){
         if(temp<=35){
             var backgroundImage='url(https://www.esrl.noaa.gov/news/quarterly/winter-2011/img/snow.jpg)';
             $('body').css('background-image',backgroundImage);
-            $('#output2').css('color','black');
 
         }
                 
         else if(temp>35 && temp<=65){
             var backgroundImage='url(http://dobrudjabg.com/ufiles/2018/06/n/vremeto-na-14-iuni-2_921.jpg)';
             $('body').css('background-image',backgroundImage);
-            $('#output2').css('color','black');
 
 
         }
@@ -51,7 +49,6 @@ jQuery(document).ready(function(){
         else {
             var backgroundImage='url(https://cdn-images-1.medium.com/max/2000/1*ulsHp5klhQEffCQUchuTOQ.jpeg)';
             $('body').css('background-image',backgroundImage);
-            $('#output2').css('color','white');
 
         }
             $('#Tname').html('Name');
