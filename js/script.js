@@ -11,9 +11,18 @@ jQuery(document).ready(function(){
             $('.table').show();
             zipCode=$('#zip').val();
 
+
+            // if(zipCode.status==){
+            //     $('#description').html('Error!');
+            // }
+
             axios.get('http://api.openweathermap.org/data/2.5/weather?zip='+zipCode+',us&APPID=513b724dbc696b9fb2a2b4ace712052f&units=imperial').then(function(resources){
             
 
+            // if(myWeather.status=404){
+            //     $('#description').html('Error!');
+
+            // }
                
                 var myWeather=resources.data;
                 var main=myWeather.weather[0].main;
@@ -33,24 +42,20 @@ jQuery(document).ready(function(){
                 var sunrise=myWeather.sys.sunrise;
                 var sunset=myWeather.sys.sunset;
                 
-        if(temp<=35){
             var backgroundImage='url(https://www.esrl.noaa.gov/news/quarterly/winter-2011/img/snow.jpg)';
-            $('body').css('background-image',backgroundImage);
 
-        }
-                
-        else if(temp>35 && temp<=65){
-            var backgroundImage='url(http://dobrudjabg.com/ufiles/2018/06/n/vremeto-na-14-iuni-2_921.jpg)';
-            $('body').css('background-image',backgroundImage);
-
+        if(temp>35 && temp<=65){
+            backgroundImage='url(http://dobrudjabg.com/ufiles/2018/06/n/vremeto-na-14-iuni-2_921.jpg)';
 
         }
 
-        else {
-            var backgroundImage='url(https://cdn-images-1.medium.com/max/2000/1*ulsHp5klhQEffCQUchuTOQ.jpeg)';
-            $('body').css('background-image',backgroundImage);
+        if(temp>65) {
+            backgroundImage='url(https://cdn-images-1.medium.com/max/2000/1*ulsHp5klhQEffCQUchuTOQ.jpeg)';
 
         }
+
+        $('body').css('background-image',backgroundImage);
+
             $('#Tname').html('Name');
             $('#name').html(name);
             $('#Ttemp').html('Temperature');
@@ -78,6 +83,15 @@ jQuery(document).ready(function(){
             $('#main').html(main);
             $('#description').html(description);
             $('#icon').html('<img src=" '+iconURL+' ">');
+        }).catch(function(error){
+            // console.log(error);
+            // console.log(error.response);
+            // console.log(error.response.data);
+            // console.log(error.response.status);
+            var errorMessage=error.response.data.message;
+            alert(errorMessage);
+            $('#description').html(errorMessage);
+            $('#description').css('font-size','20px');
         });
         
     });
